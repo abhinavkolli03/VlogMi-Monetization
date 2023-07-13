@@ -1,0 +1,29 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+# Required for Swift apps
+platform :ios, '11.0'
+use_frameworks!
+
+
+target 'CameraKitSample' do
+  
+  pod 'React', :path => '../../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket',
+  ]
+  
+  pod "Yoga", :path => "../../node_modules/react-native/ReactCommon/yoga"
+  
+	pod 'SCSDKCameraKit', '1.17.0'
+	pod 'SCSDKCameraKitReferenceUI', '1.17.0'
+	pod 'SCSDKCameraKitReferenceSwiftUI', '1.17.0'
+	pod 'SnapSDK', '1.14.0', :subspecs => ['SCSDKCreativeKit']
+
+	target 'CameraKitSampleTests' do
+		inherit! :search_paths
+	end
+end
